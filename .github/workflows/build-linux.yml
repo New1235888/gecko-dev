@@ -7,13 +7,16 @@ jobs:
     runs-on: ubuntu-latest
     env:
         SCCACHE_GHA_ENABLED: "true"
+        RUSTC_WRAPPER: sccache
         MOZ_PGO: 1
     steps:
         - name: checkout
           uses: actions/checkout@v4
          
-
-        - name: Configure sscahe
+        - name: Setup sscache
+          uses: mozilla-actions/sccache-action@v0.0.4
+          
+        - name: Configure sccache
           uses: actions/github-script@v7
           with:
             script: |
