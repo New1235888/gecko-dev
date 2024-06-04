@@ -28,6 +28,9 @@ jobs:
 
         - name: Setup Mozconfig
           run: cp gha-linux-mozconfig-aarch64.txt .mozconfig
-
+        
+        - name: Setup rust
+          run: rustup target add aarch64-unknown-linux-gnu
+          
         - name: Build Firefox
           run: ./mach build
